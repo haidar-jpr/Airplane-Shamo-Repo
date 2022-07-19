@@ -1,5 +1,6 @@
 import 'package:airplane_shamo/screens/bonus_saldo.dart';
 import 'package:airplane_shamo/screens/get_started_screen.dart';
+import 'package:airplane_shamo/screens/home_screen.dart';
 import 'package:airplane_shamo/screens/sign_up_screen.dart';
 import 'package:airplane_shamo/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BonusSaldo(),
+      home: HomeScreen(),
     );
   }
 }
