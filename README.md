@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+This is flutter project from Build With Angga company.
+This is course is paid course.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
