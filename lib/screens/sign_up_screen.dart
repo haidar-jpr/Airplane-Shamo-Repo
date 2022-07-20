@@ -55,7 +55,9 @@ class SignUpScreen extends StatelessWidget {
 
               /// Sign up button
               CustomBotton(
-                press: () {},
+                press: () {
+                  Navigator.pushReplacementNamed(context, '/bonus-saldo');
+                },
                 width: double.infinity,
                 height: 50,
                 name: 'Sign Up',

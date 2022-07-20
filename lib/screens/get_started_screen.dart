@@ -49,11 +49,13 @@ class GetStartedScreen extends StatelessWidget {
                 ),
               ),
 
-              /// Button
+              ///! Button
               Padding(
                 padding: EdgeInsets.only(top: defaultMargin + 20),
                 child: CustomBotton(
-                  press: () {},
+                  press: () {
+                    Navigator.pushReplacementNamed(context, '/sign-up');
+                  },
                   width: MediaQuery.of(context).size.width * 0.7,
                   height: 50,
                   name: 'Get Started',

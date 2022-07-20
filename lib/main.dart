@@ -17,7 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BonusSaldo(),
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/get-started': (context) => const GetStartedScreen(),
+        '/sign-up': (context) => const SignUpScreen(),
+        '/bonus-saldo': (context) => const BonusSaldo(),
+        '/home-main': (context) => const HomeScreen(),
+        '/details': (context) => const DetailScreen(),
+      },
     );
   }
 }

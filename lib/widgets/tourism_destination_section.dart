@@ -17,18 +17,24 @@ class TourismDestinationSection extends StatelessWidget {
     return Wrap(
       direction: Axis.vertical,
       children: [
+        /// !Products section
         Stack(
           children: [
-            Container(
-              width: 180,
-              height: 220,
-              margin: EdgeInsets.only(right: defaultBorder),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(url),
-                  fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/details');
+              },
+              child: Container(
+                width: 180,
+                height: 220,
+                margin: EdgeInsets.only(right: defaultBorder),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(url),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(defaultBorder),
                 ),
-                borderRadius: BorderRadius.circular(defaultBorder),
               ),
             ),
             Positioned(
@@ -44,6 +50,8 @@ class TourismDestinationSection extends StatelessWidget {
                     topRight: Radius.circular(defaultBorder),
                   ),
                 ),
+
+                /// !Rating section
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -61,9 +69,9 @@ class TourismDestinationSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
 
-        /// Name and location destination
+        /// !Name and location destination
         Text(
           'Lake Ciliwung',
           style: textStyle1.copyWith(fontSize: 14, fontWeight: FontWeight.bold),

@@ -26,7 +26,7 @@ class HomeContent extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// Greeting section
+              /// !Greeting section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -38,7 +38,7 @@ class HomeContent extends StatelessWidget {
                     ),
                   ),
 
-                  /// Profile image
+                  /// !Profile image
                   Padding(
                     padding: EdgeInsets.only(right: defaultMargin),
                     child: const CircleAvatar(
@@ -51,7 +51,7 @@ class HomeContent extends StatelessWidget {
               ),
               const SizedBox(height: 6),
 
-              /// Question section
+              /// !Question section
               Text(
                 'Where to fly today?',
                 style: textStyle1.copyWith(
@@ -62,8 +62,8 @@ class HomeContent extends StatelessWidget {
               ),
               SizedBox(height: defaultMargin),
 
-              /// Tourism destination section [TourismDestinationSection]
-              Container(
+              /// !Tourism destination section [TourismDestinationSection]
+              SizedBox(
                 width: double.infinity,
                 height: 220 + 70,
                 child: ListView.builder(
@@ -79,8 +79,8 @@ class HomeContent extends StatelessWidget {
               ),
               SizedBox(height: defaultMargin),
 
-              /// New destination section
-              /// Text
+              /// !New destination section
+              /// !Text
               Text(
                 'New This Year',
                 style: textStyle1.copyWith(
@@ -88,7 +88,7 @@ class HomeContent extends StatelessWidget {
                 ),
               ),
 
-              /// Card destination section
+              /// !Card destination section
               Column(
                 children: _cardNewDestination,
               )

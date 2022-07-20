@@ -15,6 +15,7 @@ class InterestContent extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        /// !Interest content
         Image.asset(
           'assets/icons/icon-check.png',
           width: 16,

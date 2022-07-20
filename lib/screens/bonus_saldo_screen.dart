@@ -139,7 +139,9 @@ class BonusSaldo extends StatelessWidget {
 
             /// Botton fly
             CustomBotton(
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, '/home-main');
+              },
               width: MediaQuery.of(context).size.width * 0.6,
               height: 50,
               name: 'Start Fly Now',

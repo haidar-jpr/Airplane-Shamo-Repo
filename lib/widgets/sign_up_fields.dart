@@ -19,14 +19,14 @@ class SignUpField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        /// Name field
+        /// !Name field
         Text(
           name,
           style: textStyle1,
         ),
         const SizedBox(height: 6),
 
-        /// Textfield
+        /// !Textfield
         TextField(
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(14),
