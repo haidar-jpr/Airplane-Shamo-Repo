@@ -1,8 +1,8 @@
+import 'package:airplane_shamo/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/themes.dart';
 import '../widgets/home_content.dart';
-import 'get_started_screen.dart';
 import 'sign_up_screen.dart';
 import 'splash_screen.dart';
 
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const List<Widget> _wOptions = [
     HomeContent(),
-    GetStartedScreen(),
+    DetailScreen(),
     SignUpScreen(),
     SplashScreen(),
   ];
