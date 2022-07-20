@@ -1,5 +1,7 @@
-import 'package:airplane_shamo/widgets/themes.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/custom_button.dart';
+import '../widgets/themes.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
@@ -50,24 +52,11 @@ class GetStartedScreen extends StatelessWidget {
               /// Button
               Padding(
                 padding: EdgeInsets.only(top: defaultMargin + 20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: colorBg,
-                      minimumSize: Size(
-                        MediaQuery.of(context).size.width * 0.7,
-                        50,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(defaultBorder),
-                      )),
-                  child: Text(
-                    'Get Started',
-                    style: textStyle1.copyWith(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                child: CustomBotton(
+                  press: () {},
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: 50,
+                  name: 'Get Started',
                 ),
               ),
             ],

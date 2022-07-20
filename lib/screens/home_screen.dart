@@ -1,8 +1,8 @@
-import 'package:airplane_shamo/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/themes.dart';
 import '../widgets/home_content.dart';
+import 'details_screen.dart';
 import 'sign_up_screen.dart';
 import 'splash_screen.dart';
 
@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  bool _unSelectedIndex = false;
 
   static const List<Widget> _wOptions = [
     HomeContent(),
@@ -27,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      _unSelectedIndex = !_unSelectedIndex;
     });
   }
 

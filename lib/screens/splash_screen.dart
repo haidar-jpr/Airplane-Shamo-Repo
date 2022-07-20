@@ -1,5 +1,6 @@
-import 'package:airplane_shamo/widgets/themes.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/themes.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

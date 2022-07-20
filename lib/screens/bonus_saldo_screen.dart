@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_button.dart';
 import '../widgets/themes.dart';
 
 class BonusSaldo extends StatelessWidget {
@@ -137,25 +138,11 @@ class BonusSaldo extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
 
             /// Botton fly
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: colorBg,
-                minimumSize: const Size(
-                  double.infinity,
-                  50,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(defaultBorder),
-                ),
-              ),
-              child: Text(
-                'Start Fly Now',
-                style: textStyle1.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            CustomBotton(
+              press: () {},
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: 50,
+              name: 'Start Fly Now',
             )
           ],
         ),

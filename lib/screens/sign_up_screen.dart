@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_button.dart';
 import '../widgets/sign_up_fields.dart';
 import '../widgets/themes.dart';
 
@@ -53,22 +54,11 @@ class SignUpScreen extends StatelessWidget {
               ),
 
               /// Sign up button
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(
-                    double.infinity,
-                    50,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(defaultBorder),
-                  ),
-                  primary: colorBg,
-                ),
-                child: Text(
-                  'Sign Up',
-                  style: textStyle1,
-                ),
+              CustomBotton(
+                press: () {},
+                width: double.infinity,
+                height: 50,
+                name: 'Sign Up',
               ),
               const Spacer(),
 

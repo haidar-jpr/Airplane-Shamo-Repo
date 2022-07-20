@@ -1,7 +1,8 @@
-import 'package:airplane_shamo/widgets/themes.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_button.dart';
 import '../widgets/interest_content.dart';
+import '../widgets/themes.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -62,6 +63,8 @@ class DetailScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+
+                          /// Rating
                           Row(
                             children: [
                               const Icon(
@@ -160,6 +163,8 @@ class DetailScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 6),
+
+                          /// Interest section
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: const [
@@ -188,7 +193,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                     SizedBox(height: defaultBorder),
 
-                    /// Booking section
+                    /// Booking info section
                     Padding(
                       padding: EdgeInsets.only(left: defaultMargin),
                       child: Row(
@@ -215,25 +220,11 @@ class DetailScreen extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.only(right: defaultMargin),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                primary: colorBg,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: defaultMargin + 10,
-                                  vertical: defaultBorder,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(defaultBorder),
-                                ),
-                              ),
-                              child: Text(
-                                'Book Now',
-                                style: textStyle1.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                            child: CustomBotton(
+                              press: () {},
+                              width: 150,
+                              height: 50,
+                              name: 'Book Now',
                             ),
                           ),
                         ],
