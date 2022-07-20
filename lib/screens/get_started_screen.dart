@@ -12,13 +12,13 @@ class GetStartedScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          /// Background image
+          /// !Background image
           Image.asset(
             'assets/images/bg.png',
             fit: BoxFit.cover,
           ),
 
-          /// Text
+          /// !Text
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -26,7 +26,7 @@ class GetStartedScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.6,
               ),
 
-              /// Text title
+              /// !Text title
               Text(
                 'Fly Like a Bird',
                 style: textStyle1.copyWith(
@@ -36,7 +36,7 @@ class GetStartedScreen extends StatelessWidget {
                 ),
               ),
 
-              /// Text body
+              /// !Text body
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(

@@ -14,7 +14,7 @@ class DetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            /// Background Image
+            /// !Background Image
             Image.asset(
               'assets/images/image-1.png',
               width: double.infinity,
@@ -22,7 +22,7 @@ class DetailScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
 
-            /// Content section
+            /// !Content section
             Center(
               child: Padding(
                 padding: EdgeInsets.only(top: defaultMargin + 20),
@@ -36,7 +36,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.3),
 
-                    /// Header content
+                    /// !Header content
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                       child: Row(
@@ -64,7 +64,7 @@ class DetailScreen extends StatelessWidget {
                             ],
                           ),
 
-                          /// Rating
+                          /// !Rating
                           Row(
                             children: [
                               const Icon(
@@ -85,7 +85,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                     SizedBox(height: defaultBorder),
 
-                    /// Card content
+                    /// !Card content
                     Container(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.6,
@@ -101,7 +101,7 @@ class DetailScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          /// About section
+                          /// !About section
                           Text(
                             'About',
                             style: textStyle1.copyWith(
@@ -121,7 +121,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                           SizedBox(height: defaultMargin),
 
-                          /// Photos section
+                          /// !Photos section
                           Text(
                             'Photos',
                             style: textStyle1.copyWith(
@@ -154,7 +154,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                           SizedBox(height: defaultMargin),
 
-                          /// Interests section
+                          /// !Interests section
                           Text(
                             'Interests',
                             style: textStyle1.copyWith(
@@ -164,7 +164,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 6),
 
-                          /// Interest section
+                          /// !Interest section
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: const [
@@ -193,7 +193,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                     SizedBox(height: defaultBorder),
 
-                    /// Booking info section
+                    /// !Booking info section
                     Padding(
                       padding: EdgeInsets.only(left: defaultMargin),
                       child: Row(

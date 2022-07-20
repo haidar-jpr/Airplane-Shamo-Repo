@@ -21,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// Text title
+              /// !Text title
               Text(
                 'Join us and get\n your next journey',
                 style: textStyle1.copyWith(
@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               SizedBox(height: defaultMargin + 10),
 
-              /// Input data sign up user section
+              /// !Input data sign up user section
               const SignUpField(
                 name: 'Full Name',
                 hint: 'John Doe',
@@ -53,7 +53,7 @@ class SignUpScreen extends StatelessWidget {
                 obsecure: false,
               ),
 
-              /// Sign up button
+              /// !Sign up button
               CustomBotton(
                 press: () {
                   Navigator.pushReplacementNamed(context, '/bonus-saldo');
@@ -64,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               const Spacer(),
 
-              /// Term and condition
+              /// !Term and condition
               Expanded(
                 child: Center(
                   child: TextButton(

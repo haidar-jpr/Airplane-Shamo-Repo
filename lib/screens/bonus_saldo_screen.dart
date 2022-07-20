@@ -17,7 +17,7 @@ class BonusSaldo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /// Card
+            /// !Card
             Container(
               width: double.infinity,
               height: 200,
@@ -32,7 +32,7 @@ class BonusSaldo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(defaultMargin),
               ),
 
-              /// Identity user
+              /// !Identity user
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +61,7 @@ class BonusSaldo extends StatelessWidget {
                         ],
                       ),
 
-                      /// Logo image and text
+                      /// !Logo image and text
                       Wrap(
                         children: [
                           Image.asset(
@@ -78,7 +78,7 @@ class BonusSaldo extends StatelessWidget {
                     ],
                   ),
 
-                  /// Balance section
+                  /// !Balance section
                   Wrap(
                     direction: Axis.vertical,
                     children: [
@@ -105,7 +105,7 @@ class BonusSaldo extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
 
-            /// Text  title
+            /// !Text  title
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -125,7 +125,7 @@ class BonusSaldo extends StatelessWidget {
             ),
             const SizedBox(height: 6),
 
-            /// Text body
+            /// !Text body
             Text(
               'We give you early credit so that\n you can buy a flight ticket',
               style: textStyle1.copyWith(
@@ -137,7 +137,7 @@ class BonusSaldo extends StatelessWidget {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
 
-            /// Botton fly
+            /// !Botton fly
             CustomBotton(
               press: () {
                 Navigator.pushNamed(context, '/home-main');
