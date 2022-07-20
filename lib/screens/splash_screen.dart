@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:airplane_shamo/screens/get_started_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/themes.dart';
@@ -17,9 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     Timer(
-      Duration(seconds: 4),
+      const Duration(seconds: 4),
       () {
-        Navigator.pushReplacementNamed(context, '/get-started');
+        Navigator.pushReplacementNamed(context, '/success-checkout');
       },
     );
     super.initState();

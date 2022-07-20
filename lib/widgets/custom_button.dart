@@ -6,13 +6,13 @@ class CustomBotton extends StatelessWidget {
   const CustomBotton({
     Key? key,
     required this.press,
-    this.width,
+    required this.width,
     required this.height,
     required this.name,
   }) : super(key: key);
 
   final VoidCallback press;
-  final double? width;
+  final double width;
   final double height;
   final String name;
 
@@ -22,7 +22,7 @@ class CustomBotton extends StatelessWidget {
       onPressed: press,
       style: ElevatedButton.styleFrom(
         minimumSize: Size(
-          width!,
+          width,
           height,
         ),
         shape: RoundedRectangleBorder(
