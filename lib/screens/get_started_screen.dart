@@ -1,7 +1,6 @@
+import 'package:airplane_shamo/themes.dart';
+import 'package:airplane_shamo/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/custom_button.dart';
-import '../widgets/themes.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
@@ -12,55 +11,44 @@ class GetStartedScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          /// !Background image
+          //NOTE: Background image
           Image.asset(
             'assets/images/bg.png',
             fit: BoxFit.cover,
           ),
 
-          /// !Text
+          //NOTE: Text
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.6,
-              ),
-
-              /// !Text title
+              const Spacer(),
               Text(
                 'Fly Like a Bird',
-                style: textStyle1.copyWith(
-                  color: colorW,
-                  fontSize: defaultMargin,
-                  fontWeight: FontWeight.bold,
+                style: whiteTextStyle.copyWith(
+                  fontSize: 32,
+                  fontWeight: semiBold,
                 ),
               ),
+              const SizedBox(height: 10),
+              Text(
+                'Explore new world with us and let\nyourself get an amazing experiences',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: light,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 50),
 
-              /// !Text body
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(
-                  'Explore new world with us and let\n yourself get an amazing experiences',
-                  style: textStyle1.copyWith(
-                    color: colorW,
-                    fontSize: 14,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+              //NOTE: Get started button
+              CustomButton(
+                name: 'Get Started',
+                width: 220,
+                press: () {
+                  Navigator.pushReplacementNamed(context, '/sign-up');
+                },
               ),
-
-              ///! Button
-              Padding(
-                padding: EdgeInsets.only(top: defaultMargin + 20),
-                child: CustomBotton(
-                  press: () {
-                    Navigator.pushReplacementNamed(context, '/sign-up');
-                  },
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  height: 50,
-                  name: 'Get Started',
-                ),
-              ),
+              const SizedBox(height: 80),
             ],
           ),
         ],

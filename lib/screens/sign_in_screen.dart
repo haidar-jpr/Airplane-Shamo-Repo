@@ -4,14 +4,12 @@ import 'package:airplane_shamo/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  SignInScreen({Key? key}) : super(key: key);
 
-  final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
-  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -25,30 +23,13 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 //NOTE: Header
                 Text(
-                  'Join us and get\nyour next journey',
+                  'Sign in with your existing account',
                   style: blackTextStyle.copyWith(
                     fontSize: 24,
                     fontWeight: semiBold,
                   ),
                 ),
                 SizedBox(height: whiteSpace),
-
-                //NOTE: Fullname textform field
-                Text(
-                  'Full Name',
-                  style: blackTextStyle,
-                ),
-                const SizedBox(height: 6),
-                TextFormField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(17),
-                    ),
-                    hintText: 'Your full name',
-                  ),
-                ),
-                const SizedBox(height: 20),
 
                 //NOTE: Email address textform field
                 Text(
@@ -84,23 +65,6 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   obscureText: true,
                 ),
-                const SizedBox(height: 20),
-
-                //NOTE: Hobby textform field
-                Text(
-                  'Hobby',
-                  style: blackTextStyle,
-                ),
-                const SizedBox(height: 6),
-                TextFormField(
-                  controller: hobbyController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(17),
-                    ),
-                    hintText: 'Your hobby',
-                  ),
-                ),
                 const SizedBox(height: 30),
 
                 //NOTE: Get started button
@@ -109,7 +73,7 @@ class SignUpScreen extends StatelessWidget {
                     listener: (context, state) {
                       if (state is AuthSuccess) {
                         Navigator.pushNamedAndRemoveUntil(
-                            context, '/bonus', (route) => false);
+                            context, '/home', (route) => false);
                       } else if (state is AuthFailed) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -127,27 +91,26 @@ class SignUpScreen extends StatelessWidget {
                       }
 
                       return CustomButton(
-                        name: 'Get Started',
+                        name: 'Login',
                         width: 287,
                         press: () {
-                          context.read<AuthCubit>().signUp(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              name: nameController.text,
-                              hobby: hobbyController.text);
+                          context.read<AuthCubit>().signIn(
+                                email: emailController.text,
+                                password: passwordController.text,
+                              );
                         },
                       );
                     },
                   ),
                 ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 40),
 
                 //NOTE: Term and conditions
                 Center(
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, '/sign-in'),
+                    onTap: () => Navigator.pushNamed(context, '/sign-up'),
                     child: Text(
-                      'Term and Conditions',
+                      'Don\'t have an account? Sign Up',
                       style: greyTextStyle.copyWith(
                         fontSize: 16,
                         decoration: TextDecoration.underline,

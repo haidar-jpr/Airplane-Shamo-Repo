@@ -1,38 +1,38 @@
+import 'package:airplane_shamo/themes.dart';
 import 'package:flutter/material.dart';
 
-import 'themes.dart';
-
-class CustomBotton extends StatelessWidget {
-  const CustomBotton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     Key? key,
-    required this.press,
-    required this.width,
-    required this.height,
     required this.name,
+    this.width = double.infinity,
+    required this.press,
   }) : super(key: key);
 
-  final VoidCallback press;
-  final double width;
-  final double height;
   final String name;
+  final double width;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: press,
       style: ElevatedButton.styleFrom(
+        primary: kPrimaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(17),
+        ),
         minimumSize: Size(
           width,
-          height,
+          55,
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(defaultBorder),
-        ),
-        primary: colorBg,
       ),
       child: Text(
         name,
-        style: textStyle1,
+        style: whiteTextStyle.copyWith(
+          fontSize: 18,
+          fontWeight: medium,
+        ),
       ),
     );
   }

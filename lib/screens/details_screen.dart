@@ -1,146 +1,133 @@
+import 'package:airplane_shamo/models/destination_models.dart';
+import 'package:airplane_shamo/screens/choose_seat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../themes.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/interest_content.dart';
-import '../widgets/themes.dart';
+import '../widgets/interest_details.dart';
 
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+class DetailsScreen extends StatelessWidget {
+  const DetailsScreen(
+    this.destination, {
+    Key? key,
+  }) : super(key: key);
+
+  final DestinationModel destination;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorBg2,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            /// !Background Image
-            Image.asset(
-              'assets/images/image-1.png',
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.6,
-              fit: BoxFit.cover,
-            ),
+      body: Stack(
+        children: [
+          //NOTE: Background
+          Image.network(
+            destination.imageURL,
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.6,
+            fit: BoxFit.cover,
+          ),
 
-            /// !Content section
-            Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: defaultMargin + 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/icons/icon-globe.png',
-                      width: 24,
-                      color: colorBg2,
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+          //NOTE: Details
+          SafeArea(
+            child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 30,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/icons/icon-globe.png', width: 24),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.3),
 
-                    /// !Header content
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-                      child: Row(
+                      //NOTE: Name products
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              //! name product
                               Text(
-                                'Lake Ciliwung',
-                                style: textStyle1.copyWith(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: colorBg2,
+                                destination.name,
+                                style: whiteTextStyle.copyWith(
+                                  fontSize: 22,
+                                  fontWeight: semiBold,
                                 ),
                               ),
+
+                              //! location
                               Text(
-                                'Tangerang',
-                                style: textStyle1.copyWith(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w100,
-                                  color: colorBg2,
-                                ),
+                                destination.city,
+                                style:
+                                    whiteTextStyle.copyWith(fontWeight: light),
                               ),
                             ],
                           ),
-
-                          /// !Rating
                           Row(
                             children: [
-                              const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
+                              const Icon(Icons.star, color: Colors.amber),
+
+                              //! Rating
                               Text(
-                                '4.9',
-                                style: textStyle1.copyWith(
-                                  color: colorBg2,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                destination.rating.toString(),
+                                style:
+                                    whiteTextStyle.copyWith(fontWeight: medium),
                               )
                             ],
-                          )
+                          ),
                         ],
                       ),
-                    ),
-                    SizedBox(height: defaultBorder),
+                      const SizedBox(height: 15),
 
-                    /// !Card content
-                    Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: defaultBorder,
-                        vertical: defaultMargin,
-                      ),
-                      decoration: BoxDecoration(
-                        color: colorBg2,
-                        borderRadius: BorderRadius.circular(defaultBorder),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// !About section
-                          Text(
-                            'About',
-                            style: textStyle1.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          Expanded(
-                            child: Text(
-                              'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
-                              style: textStyle1,
-                              textAlign: TextAlign.start,
-                              maxLines: 4,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          SizedBox(height: defaultMargin),
+                      //NOTE: About products
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: whiteSpace),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'About',
+                                style: blackTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: semiBold,
+                                ),
+                              ),
 
-                          /// !Photos section
-                          Text(
-                            'Photos',
-                            style: textStyle1.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(right: defaultBorder),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(
-                                      defaultBorder,
-                                    ),
+                              //! Details text products
+                              Text(
+                                'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                                style: blackTextStyle.copyWith(fontSize: 14),
+                              ),
+                              const SizedBox(height: 15),
+
+                              //NOTE: Photos
+                              Text(
+                                'Photos',
+                                style: blackTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: semiBold,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+
+                              //! Photos
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
                                     child: Image.asset(
                                       'assets/images/image-3.png',
                                       width: 70,
@@ -148,95 +135,107 @@ class DetailScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
+                                  const SizedBox(width: 10),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/image-12.png',
+                                      width: 70,
+                                      height: 70,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/image-7.png',
+                                      width: 70,
+                                      height: 70,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 15),
+
+                              //NOTE: Interest
+                              Text(
+                                'Interest',
+                                style: blackTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: semiBold,
                                 ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: defaultMargin),
-
-                          /// !Interests section
-                          Text(
-                            'Interests',
-                            style: textStyle1.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-
-                          /// !Interest section
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              InterestContent(
-                                name: 'Kids Park',
                               ),
-                              InterestContent(
-                                name: 'City Museum',
+                              const SizedBox(height: 10),
+
+                              //! Interest name
+                              const InterestDetails(
+                                name1: 'Kids Park',
+                                name2: 'Honor Bridge',
+                              ),
+                              const SizedBox(height: 10),
+                              const InterestDetails(
+                                name1: 'City Museum',
+                                name2: 'Central Mall',
                               ),
                             ],
                           ),
-                          const SizedBox(height: 6),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              InterestContent(
-                                name: 'Honor Bridge',
-                              ),
-                              InterestContent(
-                                name: 'Central Mall',
-                              ),
-                            ],
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: defaultBorder),
+                      SizedBox(height: whiteSpace),
 
-                    /// !Booking info section
-                    Padding(
-                      padding: EdgeInsets.only(left: defaultMargin),
-                      child: Row(
+                      //NOTE: Price and Book button
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              //! Price
                               Text(
-                                'IDR 7.000.000',
-                                style: textStyle1.copyWith(
+                                NumberFormat.currency(
+                                  locale: 'id',
+                                  symbol: 'IDR ',
+                                  decimalDigits: 0,
+                                ).format(destination.price),
+                                style: blackTextStyle.copyWith(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: semiBold,
                                 ),
                               ),
                               Text(
-                                'per orang',
-                                style: textStyle1.copyWith(
+                                'per Orang',
+                                style: greyTextStyle.copyWith(
                                   fontSize: 12,
-                                  color: Colors.grey,
+                                  fontWeight: light,
                                 ),
-                              )
+                              ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(right: defaultMargin),
-                            child: CustomBotton(
-                              press: () {},
-                              width: 150,
-                              height: 50,
-                              name: 'Book Now',
-                            ),
-                          ),
+                          //! Button
+                          CustomButton(
+                            name: 'Book Now',
+                            width: 170,
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ChooseSeatScreen(destination),
+                                ),
+                              );
+                            },
+                          )
                         ],
                       ),
-                    ),
-                    SizedBox(height: defaultMargin),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

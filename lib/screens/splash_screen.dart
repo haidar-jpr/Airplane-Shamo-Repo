@@ -1,8 +1,12 @@
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:airplane_shamo/cubit/auth_cubit.dart';
+import 'package:airplane_shamo/screens/get_started_screen.dart';
+import 'package:airplane_shamo/themes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/themes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,44 +18,55 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-    Timer(
-      const Duration(seconds: 4),
-      () {
-        Navigator.pushReplacementNamed(context, '/checkout');
-      },
-    );
+    // NOTE: implement initState
+    Timer(const Duration(seconds: 3), () {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user == null) {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/get-started',
+          (route) => false,
+        );
+      } else {
+        context.read<AuthCubit>().getCurrentUser(user.uid);
+        print(user.email);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/home',
+          (route) => false,
+        );
+      }
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorBg,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ///! Image app logo
-            Image.asset(
-              'assets/logo/logo.png',
-              width: MediaQuery.of(context).size.width * 0.5,
-            ),
-            SizedBox(height: defaultMargin),
-
-            ///! App name
-            Text(
-              'Airplane'.toUpperCase(),
-              style: textStyle1.copyWith(
-                letterSpacing: 10,
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-                color: Colors.white,
-              ),
-            )
-          ],
+      backgroundColor: kPrimaryColor,
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        //NOTE: LOGO
+        Center(
+          child: Image.asset(
+            'assets/logo/logo.png',
+            width: 100,
+          ),
         ),
-      ),
+        SizedBox(
+          height: whiteSpace,
+        ),
+
+        //NOTE: Name App
+        Text(
+          'AIRPLANE',
+          style: whiteTextStyle.copyWith(
+            letterSpacing: 12,
+            fontSize: 32,
+            fontWeight: medium,
+          ),
+        )
+      ]),
     );
   }
 }
